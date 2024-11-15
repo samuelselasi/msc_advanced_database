@@ -1,33 +1,29 @@
 #!/usr/bin/python3
 """Module that defines orm schemas for tables"""
 
+from datetime import date
 from pydantic import BaseModel
 
 
-class ProductBase(BaseModel):
+class HolidayBase(BaseModel):
 
     """Class that defines instance attributes"""
 
-    productName: str
-    serialNo: str
-    unitPrice: int
-    quantityOnHand: int
-    reorderLevel: int
-    reorderQuantity: int
-    reorderLeadTime: int
-    categoryNo: int
+    employeeNo: int
+    startDate: date
+    endDate: date
 
 
-class ProductCreate(ProductBase):
+class HolidayCreate(HolidayBase):
     """Class that defines instance attributes"""
 
     pass
 
 
-class Product(ProductBase):
+class Holiday(HolidayBase):
     """Class that defines instance attributes"""
 
-    productNo: int
+    pass
 
     class Config:
         """Class that configures ORM mode"""

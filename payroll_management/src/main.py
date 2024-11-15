@@ -2,7 +2,7 @@
 """Module to initialize routers and endpoints"""
 
 from fastapi import FastAPI
-from app import employees, bonustype, deducttype
+from app import employees, bonustype, deducttype, paytype, holiday
 import uvicorn
 
 app = FastAPI(debug=True)
@@ -10,6 +10,8 @@ app = FastAPI(debug=True)
 app.include_router(employees.router, tags=["Employees"])
 app.include_router(bonustype.router, tags=["Bonus Types"])
 app.include_router(deducttype.router, tags=["Deduct Types"])
+app.include_router(paytype.router, tags=["Pay Types"])
+app.include_router(holiday.router, tags=["Holidays"])
 
 @app.get("/")
 async def root():
