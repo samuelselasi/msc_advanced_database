@@ -74,7 +74,7 @@ async def create_holiday(holiday: schemas.HolidayCreate,
     if db_holiday:
         raise HTTPException(status_code=400,
                             detail="Holiday already exists for employee")
-    return crud.create_product(db=db, holiday=holiday)
+    return crud.create_holiday(db=db, holiday=holiday)
 
 
 @router.put("/update_holiday/{employeeNo}/{startDate}", 
@@ -94,5 +94,5 @@ async def delete_holiday(
         db: Session = Depends(get_db)):
     """Endpoint to delete a holiday based on employeeNo and startDate"""
 
-    crud.delete_holiday(db, employeeNo, startDate, holiday_update)
+    crud.delete_holiday(db, employeeNo, startDate, holiday_delete)
     return {"message": "Product deleted successfully"}
