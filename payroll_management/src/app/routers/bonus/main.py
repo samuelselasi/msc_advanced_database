@@ -88,7 +88,7 @@ async def update_bonus(employeeNo: int, bonusDate: date,
 
 
 @router.delete("/delete_bonus/{employeeNo}/{bonusDate}",
-        response_model=schemas.Bonus)
+        response_model=None)
 async def delete_bonus(employeeNo: int, bonusDate: date,
         bonus_delete: schemas.BonusBase, db: Session = Depends(get_db)):
     """Endpoint to delete a bonus based on employeeNo and bonusDate"""

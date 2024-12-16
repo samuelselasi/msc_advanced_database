@@ -5,29 +5,29 @@ from datetime import date
 from pydantic import BaseModel
 
 
-class OrderBase(BaseModel):
+class PayDetailBase(BaseModel):
 
     """Class that defines instance attributes"""
 
-    purchaseOrderDescription: str
-    # orderDate: date
-    dateRequired: date
-    shippedDate: date
-    freightCharge: int
-    supplierNo: int
     employeeNo: int
+    startDate: date
+    routingNumber: int
+    accountType: str
+    bankName: str
+    bankAddress: str
+    payTypeNo: int
 
 
-class OrderCreate(OrderBase):
+class PayDetailCreate(PayDetailBase):
     """Class that defines instance attributes"""
 
     pass
 
 
-class Order(OrderBase):
+class PayDetail(PayDetailBase):
     """Class that defines instance attributes"""
 
-    purchaseOrderNo: int
+    pass
 
     class Config:
         """Class that configures ORM mode"""

@@ -11,6 +11,7 @@ from app.routers.sickleave import main as sickleave
 from app.routers.payhistory import main as payhistory
 from app.routers.bonus import main as bonus
 from app.routers.deduction import main as deduction
+from app.routers.paydetails import main as paydetails
 
 app = FastAPI(debug=True)
 
@@ -23,6 +24,7 @@ app.include_router(sickleave.router, tags=["Sick Leaves"])
 app.include_router(payhistory.router, tags=["Pay History"])
 app.include_router(bonus.router, tags=["Bonuses"])
 app.include_router(deduction.router, tags=["Deductions"])
+app.include_router(paydetails.router, tags=["Pay Details"])
 
 @app.get("/")
 async def root():

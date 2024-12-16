@@ -3,7 +3,7 @@
 
 from fastapi import FastAPI
 from app import (employees, bonustype, deducttype, paytype,
-        holiday, sickleave, payhistory, bonus, deduction)
+        holiday, sickleave, payhistory, bonus, deduction, paydetails)
 import uvicorn
 
 app = FastAPI(debug=True)
@@ -17,6 +17,7 @@ app.include_router(sickleave.router, tags=["Sick Leaves"])
 app.include_router(payhistory.router, tags=["Pay History"])
 app.include_router(bonus.router, tags=["Bonuses"])
 app.include_router(deduction.router, tags=["Deductions"])
+app.include_router(paydetails.router, tags=["Pay Details"])
 
 @app.get("/")
 async def root():
