@@ -1,11 +1,11 @@
 # Inventory Control
-![inventoryERD](https://github.com/user-attachments/assets/d187b993-ff53-42d7-b0e8-08d5d3123b5b)
-
 > A company wishes to create a database to control its inventory,
 which consits of a number of products divided into a number of categories,
 such as clothing, food, and stationery. An employee raises a purchase order
 when a product has to be recorded from the supplier.
 The tracking supplies received, units sold, and any wastage.
+
+![inventoryERD](https://github.com/user-attachments/assets/d187b993-ff53-42d7-b0e8-08d5d3123b5b)
 
 ## Product
 * productNo
