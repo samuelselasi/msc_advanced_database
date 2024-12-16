@@ -1,5 +1,5 @@
 # Inventory Control
-![inventoryERD](https://github.com/user-attachments/assets/17cb9569-a766-4db1-80c6-7bdd1d8d0270)
+![inventoryERD](https://github.com/user-attachments/assets/d187b993-ff53-42d7-b0e8-08d5d3123b5b)
 
 > A company wishes to create a database to control its inventory,
 which consits of a number of products divided into a number of categories,
