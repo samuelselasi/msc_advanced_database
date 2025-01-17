@@ -26,6 +26,9 @@ from .serializers import (ActivityAbroadCodesSerializer, BathingFacilitiesSerial
         TenureSerializer, ToiletFacilitiesSerializer, ToiletFacilitiesSharedSerializer,
         WaterSupplyDomesticSerializer, WaterSupplyDrinkingSerializer)
 
+def api_dashboard(request):
+    return render(request, 'index.html')
+
 class ActivityAbroadCodesViewSet(viewsets.ModelViewSet):
     queryset = ActivityAbroadCodes.objects.all()
     serializer_class = ActivityAbroadCodesSerializer
