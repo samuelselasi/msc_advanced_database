@@ -10,7 +10,7 @@ from .views import (ActivityAbroadCodesViewSet, BathingFacilitiesViewSet, Cookin
         RegionAndCountryCodesViewSet, RelationshipCodesViewSet, ReligionViewSet, ResidenceTypeViewSet,
         RoofViewSet, SchoolingLevelViewSet, SolidWasteDisposalViewSet, SubdistrictsViewSet,
         SupervisorViewSet, TenureViewSet, ToiletFacilitiesViewSet, ToiletFacilitiesSharedViewSet,
-        WaterSupplyDomesticViewSet, WaterSupplyDrinkingViewSet)
+        WaterSupplyDomesticViewSet, WaterSupplyDrinkingViewSet, api_dashboard)
 
 
 router = DefaultRouter()
@@ -59,5 +59,6 @@ router.register(r'watersupplydomestic', WaterSupplyDomesticViewSet)
 router.register(r'watersupplydrinking', WaterSupplyDrinkingViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),  # Ensure this is included
+    path('', api_dashboard, name='api-dashboard'),
+    path('', include(router.urls)),
 ]
