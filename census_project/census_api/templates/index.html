@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Census API Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .endpoint {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        .endpoint h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .endpoint p {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .endpoint a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .endpoint a:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Census API Dashboard</h1>
+        <p>Interact with the available endpoints below</p>
+    </header>
+    <main>
+        <!-- List of API Endpoints -->
+        <div class="endpoint">
+            <h2>Activity Abroad Codes</h2>
+            <p>Description: Retrieve or create activity abroad codes</p>
+            <a href="/api/activity_abroad_codes/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Bathing Facilities</h2>
+            <p>Description: Retrieve or create bathing facility data</p>
+            <a href="/api/bathingfacilities/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Cooking Fuel</h2>
+            <p>Description: Retrieve or create cooking fuel data</p>
+            <a href="/api/cookingfuel/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Cooking Space</h2>
+            <p>Description: Retrieve or create cooking space data</p>
+            <a href="/api/cookingspace/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Crop Type</h2>
+            <p>Description: Retrieve or create crop type data</p>
+            <a href="/api/croptype/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>District Types</h2>
+            <p>Description: Retrieve or create district type data</p>
+            <a href="/api/districttypes/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Districts</h2>
+            <p>Description: Retrieve or create district data</p>
+            <a href="/api/districts/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Dwelling Type</h2>
+            <p>Description: Retrieve or create dwelling type data</p>
+            <a href="/api/dwellingtype/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Employment Sector</h2>
+            <p>Description: Retrieve or create employment sector data</p>
+            <a href="/api/employmentsector/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Employment Status</h2>
+            <p>Description: Retrieve or create employment status data</p>
+            <a href="/api/employmentstatus/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Enumerator</h2>
+            <p>Description: Retrieve or create enumerator data</p>
+            <a href="/api/enumerator/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Ethnicity</h2>
+            <p>Description: Retrieve or create ethnicity data</p>
+            <a href="/api/ethnicity/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Farm Measurement Unit</h2>
+            <p>Description: Retrieve or create farm measurement unit data</p>
+            <a href="/api/farmmeasurementunit/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Household Roster Absent</h2>
+            <p>Description: Retrieve or create absent household roster data</p>
+            <a href="/api/householdrosterabsent/" target="_blank">Access Endpoint</a>
+        </div>
+        <div class="endpoint">
+            <h2>Questionnaire</h2>
+            <p>Description: Access and manage questionnaire data</p>
+            <a href="/api/questionnaire/" target="_blank">Access Endpoint</a>
+        </div>
+        <!-- Add other endpoints in a similar fashion -->
+    </main>
+    <footer>
+        &copy; 2025 Census API Dashboard
+    </footer>
+</body>
+</html>
