@@ -1,72 +1,60 @@
-# Census Database Schema
+# Census Project Database Setup
 
-This directory contains the SQL schema and database-related scripts for the **Census Database Management System**. It is designed to work with **PostgreSQL** and supports structured census data storage and retrieval.
+This directory contains the SQL scripts necessary for setting up the database schema for the Census Project. Follow the instructions below to create and populate the database.
 
-## 📌 Database Overview
-The database consists of multiple tables representing different aspects of the census, including:
-- `households`: Stores household-related information.
-- `individuals`: Contains demographic data of individuals.
-- `housing_information`: Captures details of housing conditions.
-- `agricultural_activity`: Records agricultural engagement details.
-- `ict_and_disability`: Stores ICT access and disability-related information.
+## Prerequisites
 
-## 📂 Files in this Directory
-- `schema.sql`: Contains the SQL commands to create tables, constraints, and relationships.
-- `data.sql`: Sample data for testing purposes.
-- `backup/`: Directory to store database backups.
+- **PostgreSQL**: Ensure that PostgreSQL is installed on your system. You can download it from the [official website](https://www.postgresql.org/download/).
 
-## 🛠 Database Setup
-### 1️⃣ Create PostgreSQL Database
-Open PostgreSQL and run:
-```sql
-CREATE DATABASE census_db;
-CREATE USER census_user WITH PASSWORD 'password';
-ALTER ROLE census_user SET client_encoding TO 'utf8';
-ALTER ROLE census_user SET default_transaction_isolation TO 'read committed';
-ALTER ROLE census_user SET timezone TO 'UTC';
-GRANT ALL PRIVILEGES ON DATABASE census_db TO census_user;
-```
+## Setup Instructions
 
-### 2️⃣ Load Schema
-To create tables, run:
-```bash
-psql -U census_user -d census_db -f schema.sql
-```
+1. **Create the Database**:
+   - Open your terminal or command prompt.
+   - Access the PostgreSQL command-line interface:
+     ```bash
+     psql -U your_username
+     ```
+   - Create a new database named `census_db`:
+     ```sql
+     CREATE DATABASE census_db;
+     ```
 
-### 3️⃣ Insert Sample Data (Optional)
-```bash
-psql -U census_user -d census_db -f data.sql
-```
+2. **Navigate to the Database Directory**:
+   - In your terminal, navigate to the `database` directory of the project:
+     ```bash
+     cd path/to/census_project/database
+     ```
 
-## 🔄 Database Backup and Restore
-### Backup Database
-```bash
-pg_dump -U census_user -d census_db -F c -f backup/census_db_backup.sql
-```
+3. **Execute SQL Scripts**:
+   - The SQL scripts are organized to set up different parts of the database schema. Execute each script in the appropriate order to ensure all dependencies are met. For example:
+     ```bash
+     psql -U your_username -d census_db -f create_tables.sql
+     psql -U your_username -d census_db -f insert_data.sql
+     psql -U your_username -d census_db -f create_indexes.sql
+     ```
+   - Replace `your_username` with your PostgreSQL username.
+   - Ensure you execute the scripts in the correct order to maintain referential integrity.
 
-### Restore Database
-```bash
-pg_restore -U census_user -d census_db backup/census_db_backup.sql
-```
+4. **Verify the Setup**:
+   - After executing the scripts, you can verify the tables and data by connecting to the `census_db` database:
+     ```bash
+     psql -U your_username -d census_db
+     ```
+   - List the tables:
+     ```sql
+     \dt
+     ```
+   - View sample data:
+     ```sql
+     SELECT * FROM household LIMIT 10;
+     ```
 
-## 📡 Database Connection in Django
-Ensure `census_project/settings.py` is configured with:
-```python
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'census_db',
-        'USER': 'census_user',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-```
+## Notes
 
-## 📜 License
-This project is licensed under the MIT License.
+- If you encounter any issues during the setup, ensure that your PostgreSQL service is running and that you have the necessary permissions to create databases and execute scripts.
+- It's recommended to review each SQL script to understand its purpose and ensure it aligns with your database design.
 
----
+For more detailed information about the project and its components, refer to the main [README](../README.md) file in the root directory.
+
 ### ✨ Need Help?
 If you encounter issues, open a GitHub issue or contact the repository owner.
