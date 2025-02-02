@@ -56,5 +56,7 @@ This directory contains the SQL scripts necessary for setting up the database sc
 
 For more detailed information about the project and its components, refer to the main [README](../README.md) file in the root directory.
 
+![census_db](https://github.com/user-attachments/assets/dc4f0e22-6b5e-4124-a79f-de9b4beb553d)
+
 ### ✨ Need Help?
 If you encounter issues, open a GitHub issue or contact the repository owner.
