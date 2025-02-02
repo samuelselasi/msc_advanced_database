@@ -1,88 +1,99 @@
-### Population and Census Database Management System for Ghana
+# Census Database Management System
 
-### Introduction
+This is a Django-based Population and Census Database Management System designed for Ghana. It utilizes **PostgreSQL** as the database backend and provides a RESTful API using Django REST Framework.
 
-The Population and Housing Census is vital for understanding Ghana's demographic, social, and economic trends. Traditionally reliant on manual methods, census operations face inefficiencies and inaccuracies that hinder timely and accurate data processing. This report outlines the development of a Census Database Management System (DBMS) to address these issues by transitioning to a scalable and automated digital solution.
+## 📌 Project Repository
+GitHub: [Census Project](https://github.com/samuelselasi/msc_advanced_database/tree/main/census_project)
 
-### 1. Purpose of the Report
+## ⚡ Prerequisites
+Ensure you have the following installed:
+- Python (>= 3.8)
+- PostgreSQL (>= 12)
+- Git
+- Virtual Environment (venv or virtualenv)
 
-This report documents the analysis, design, implementation, and testing of a database system tailored to the 2010 Population and Housing Census in Ghana. It provides insights into the project requirements, system architecture, and functionalities while serving as a reference for similar initiatives in the future.
+## 🔽 Installation
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/samuelselasi/msc_advanced_database.git
+cd msc_advanced_database/census_project
+```
 
-### 2. Overview of the Project Requirements
+### 2️⃣ Create a Virtual Environment and Activate It
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On macOS/Linux
+venv\Scripts\activate  # On Windows
+```
 
-The Statistical Department of Ghana aims to develop a database management system to improve census operations. Key requirements include:
-- Analyzing manual census forms to identify entities, attributes, and constraints.
-- Designing an E/R model for one-to-one and one-to-many relationships.
-- Normalizing relations to handle many-to-many relationships.
-- Implementing the database in a relational database system.
-- Creating a user-friendly interface for essential operations.
-- Using stored procedures, triggers, and cursors for backend enhancements.
-- Applying data partitioning and developing a comprehensive backup strategy.
+### 3️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-This project emphasizes functionality, reliability, and data integrity while adhering to database development best practices.
+## 🛠 Database Setup
+### 4️⃣ Create PostgreSQL Database
+Open PostgreSQL and run:
+```sql
+CREATE DATABASE census_db;
+CREATE USER census_user WITH PASSWORD 'password';
+ALTER ROLE census_user SET client_encoding TO 'utf8';
+ALTER ROLE census_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE census_user SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE census_db TO census_user;
+```
 
-### 3. Importance of a Database System for Census Operations
+### 5️⃣ Configure Django Database Settings
+Edit `census_project/settings.py` and update:
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'census_db',
+        'USER': 'census_user',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+```
 
-Database systems revolutionize census operations by offering:
-- **Improved Accuracy:** Automated validation reduces human error.
-- **Enhanced Efficiency:** Faster data entry, retrieval, and analysis.
-- **Scalability:** Handling large, growing datasets.
-- **Centralized Management:** Better data organization, access, and security.
-- **Timely Insights:** Quick data processing for real-time decision-making.
+## 🚀 Running the Project
+### 6️⃣ Apply Migrations
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
 
-With a robust DBMS, the Statistical Department can modernize census processes, providing valuable insights efficiently to policymakers, researchers, and the public.
+### 7️⃣ Create a Superuser (Optional for Admin Access)
+```bash
+python manage.py createsuperuser
+```
 
-### System Design
+### 8️⃣ Start the Development Server
+```bash
+python manage.py runserver
+```
+Visit: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-#### 3.1. Entity-Relationship (E/R) Model
+## 📡 API Endpoints
+You can explore the API at:
+- Swagger UI: `http://127.0.0.1:8000/docs/`
+- Django Admin: `http://127.0.0.1:8000/admin/`
 
-The E/R model for the census database captures the relationships between core entities such as Household, Individual, Housing Information, Agricultural Activity, and ICT & Disability. Key relationships include:
-- **One-to-Many:** A Household can have multiple Individuals linked to it.
-- **One-to-One:** Each Household has a unique Housing Information record.
-- **Many-to-Many:** Individuals may engage in multiple Agricultural Activities, which is resolved using a junction table.
+## 🔄 Backup Database
+To create a backup:
+```bash
+python manage.py dumpdata > backup.json
+```
+To restore:
+```bash
+python manage.py loaddata backup.json
+```
 
-#### 3.2. Normalization of Relations
+## 📝 License
+This project is licensed under the MIT License.
 
-Normalization ensures data redundancy is minimized, and integrity is maintained. Examples include:
-- **1NF:** Splitting multi-valued attributes into separate records.
-- **2NF:** Eliminating partial dependencies.
-- **3NF:** Removing transitive dependencies.
-
-#### 3.3. Chosen Database Management System
-
-PostgreSQL was chosen due to:
-- **Scalability** for large datasets.
-- **Advanced Features** such as partitioning and full-text search.
-- **Compliance** with ACID properties.
-- **Extensibility** through custom functions and extensions.
-
-### Database Implementation
-
-#### 4.1. Table Creation
-Tables were created in PostgreSQL with appropriate data types, constraints, and indexes to optimize performance.
-
-#### 4.2. Referential Keys and Relationships
-Foreign keys were used to enforce relationships between tables, ensuring referential integrity.
-
-#### 4.3. Partitioning Strategy
-A partitioning strategy was implemented to optimize queries on large datasets, such as partitioning household records by region.
-
-### User Interface Design
-
-The frontend was developed using Django templates and HTML to provide a user-friendly interface for interacting with the database.
-
-### Backend Development
-
-Django REST Framework (DRF) was used to expose API endpoints, ensuring efficient data retrieval and updates.
-
-### Backup and Recovery
-
-A backup feature was implemented using PostgreSQL's `pg_dump` utility. A dedicated API endpoint allows scheduled and on-demand backups.
-
-### Challenges and Solutions
-
-Challenges included managing complex relationships and optimizing performance. These were addressed through indexing, partitioning, and using Django ORM effectively.
-
-### Conclusion
-
-The developed Census Database Management System enhances data collection and management, improving the efficiency and accuracy of census operations in Ghana.
+---
+### ✨ Need Help?
+If you run into any issues, please open an issue on GitHub or contact the repository owner.
